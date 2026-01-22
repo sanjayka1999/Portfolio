@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Jyothi Gayathri Adabala | Data & Backend Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        :root {
+            --bg-pure: #000000;
+            --bg-card: #0a0a0a;
+            --bg-nav: rgba(0, 0, 0, 0.9);
+            --accent: #3b82f6;
+            --accent-soft: rgba(59, 130, 246, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --border: #1a1a1a;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-pure);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header / Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 10% 60px;
+        }
+
+        .hero-badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -3px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin-bottom: 3.5rem;
+        }
+
+        .cta-group { display: flex; gap: 1rem; }
+
+        /* --- Global Grid & Section Styling --- */
+        section {
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: left;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* --- Stats Bar --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: #0d0d0d;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .stat-card p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-group h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-group h3 i { color: var(--accent); }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tags span {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .tags span:hover {
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* --- Experience --- */
+        .timeline {
+            max-width: 900px;
+        }
+
+        .job-card {
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .job-title h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .job-title p { color: var(--accent); font-weight: 700; }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: rgba(255,255,255,0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+        }
+
+        .job-desc {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .job-desc li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-desc li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* --- Projects --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: #333;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .project-card .type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #050505;
+            padding: 100px 8% 50px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact-box {
+            margin-bottom: 4rem;
+        }
+
+        .contact-box h2 { font-size: 3rem; margin-bottom: 1rem; }
+
+        .btn-mail {
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-mail:hover { opacity: 0.8; }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: #fff; transform: translateY(-3px); }
+
+        .btn-main {
+            background: var(--accent);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            background: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 5%; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .job-header { flex-direction: column; gap: 1rem; }
+            .stats-grid { margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">ASJG<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Toolkit</a></li>
+            <li><a href="#experience">History</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="reveal hero-badge">BACKEND & DATA SCIENCE ENGINEER</div>
+            <h1 class="reveal">Building Scalable <br> Data Intelligence.</h1>
+            <p class="reveal">Computer Science Graduate Student at Rivier University. Specialized in high-performance Python architectures and Machine Learning with 2+ years of professional field experience.</p>
+            <div class="reveal cta-group">
+                <a href="#projects" class="btn-main">See Projects</a>
+                <a href="#contact" class="btn-main" style="background: transparent; border: 1px solid var(--border);">Get in Touch</a>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card reveal">
+                <h3>150+</h3>
+                <p>LeetCode Solved</p>
+            </div>
+            <div class="stat-card reveal">
+                <h3>7268</h3>
+                <p>GATE AIR Rank</p>
+            </div>
+            <div class="stat-card reveal">
+                <h3>3.84</h3>
+                <p>Masters GPA</p>
+            </div>
+            <div class="stat-card reveal">
+                <h3>2Y+</h3>
+                <p>Field Experience</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-header reveal">
+                <h2>Technical Toolkit</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-group reveal">
+                    <h3><i class="fas fa-brain"></i> Data Science</h3>
+                    <div class="tags">
+                        <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span>
+                        <span>Regression</span><span>Classification</span><span>Clustering</span><span>Scikit-Learn</span>
+                    </div>
+                </div>
+                <div class="skill-group reveal">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="tags">
+                        <span>SQL</span><span>Python Backend</span><span>Data Validation</span>
+                        <span>API Design</span><span>Error Handling</span><span>Query Optimization</span>
+                    </div>
+                </div>
+                <div class="skill-group reveal">
+                    <h3><i class="fas fa-microchip"></i> Foundations</h3>
+                    <div class="tags">
+                        <span>Data Structures</span><span>Algorithms</span><span>OS Architecture</span>
+                        <span>Linux</span><span>CPU Scheduling</span><span>Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-header reveal">
+                <h2>Work History</h2>
+                <div class="line"></div>
+            </div>
+            <div class="timeline">
+                <div class="job-card reveal">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Backend Developer</h3>
+                            <p>NS Software Technologies Pvt Ltd</p>
+                        </div>
+                        <div class="job-date">Sep 2022 – Jun 2024</div>
+                    </div>
+                    <ul class="job-desc">
+                        <li>Architected Python backend services for enterprise data management.</li>
+                        <li>Automated data validation pipelines reducing error processing time by 40%.</li>
+                        <li>Optimized SQL queries and aggregation logic for real-time analytics dashboards.</li>
+                        <li>Enhanced system reliability through rigorous refactoring and error-handling protocols.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-header reveal">
+                <h2>Projects & Research</h2>
+                <div class="line"></div>
+            </div>
+            <div class="project-grid">
+                <div class="project-card reveal">
+                    <span class="type">Development</span>
+                    <h3>ML Model Suite</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Implementation of regression/classification models with hyperparameter tuning.</p>
+                </div>
+                <div class="project-card reveal">
+                    <span class="type">Publication</span>
+                    <h3>SpringerLink Research</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Co-authored research on sustainable water systems published in SpringerLink.</p>
+                </div>
+                <div class="project-card reveal">
+                    <span class="type">Research</span>
+                    <h3>Fuzzy-Logic Robotics</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Designed control algorithms for 4-axis robotic welding presented at GCAT 2021.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-header reveal">
+                <h2>Education</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-group reveal" style="border-left: 4px solid var(--accent);">
+                    <p class="job-date" style="display: inline-block; margin-bottom: 1rem;">2024 — 2026</p>
+                    <h3>MS in Computer Science</h3>
+                    <p style="color: var(--text-secondary);">Rivier University, USA • <strong>GPA 3.844</strong></p>
+                </div>
+                <div class="skill-group reveal">
+                    <p class="job-date" style="display: inline-block; margin-bottom: 1rem;">2017 — 2021</p>
+                    <h3>B.Tech in Electrical Engineering</h3>
+                    <p style="color: var(--text-secondary);">Amrita School of Engineering, India • <strong>GPA 8.19</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="contact-box reveal">
+            <h2>Let's talk.</h2>
+            <a href="mailto:asjyothigayathri@gmail.com" class="btn-mail">asjyothigayathri@gmail.com</a>
+        </div>
+        
+        <p class="reveal" style="color: var(--text-secondary);">Nashua, NH, USA | +1 (978) 259-8722</p>
+        
+        <div class="social-links reveal">
+            <a href="https://linkedin.com/in/sai-jyothi-gayathri-adabala-a41a9818b" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/sadabala30" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/u/asjgcodes" target="_blank"><i class="fas fa-code"></i></a>
+        </div>
+        
+        <p style="margin-top: 4rem; font-size: 0.75rem; color: #333;">&copy; 2025 Sai Jyothi Gayathri Adabala. Built for speed and data.</p>
+    </footer>
+
+    <script>
+        // ScrollReveal Animation Logic
+        ScrollReveal().reveal('.reveal', {
+            delay: 150,
+            distance: '30px',
+            duration: 800,
+            easing: 'ease-out',
+            origin: 'bottom',
+            reset: false
+        });
+    </script>
+</body>
+</html>
