@@ -21,8 +21,13 @@
             --bg-pure: #000000;
             --bg-card: #0a0a0a;
             --bg-nav: rgba(0, 0, 0, 0.9);
-            --accent: #3b82f6;
-            --accent-soft: rgba(59, 130, 246, 0.1);
+            --accent: #3b82f6; /* Blue */
+            --accent-green: #10b981; /* Emerald */
+            --accent-purple: #a855f7; /* Purple */
+            --accent-amber: #f59e0b; /* Amber */
+            --accent-rose: #f43f5e; /* Rose */
+            --accent-cyan: #06b6d4; /* Cyan */
+            --accent-indigo: #6366f1; /* Indigo */
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
             --border: #1a1a1a;
@@ -44,7 +49,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Header / Navigation --- */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0;
@@ -66,8 +71,8 @@
             color: #fff;
             text-decoration: none;
         }
-
-        .logo span { color: var(--accent); }
+        .logo .highlight-j { color: var(--accent); }
+        .logo .dot { color: var(--accent); }
 
         .nav-links {
             display: flex;
@@ -99,7 +104,7 @@
         }
 
         .hero-badge {
-            background: var(--accent-soft);
+            background: rgba(59, 130, 246, 0.1);
             color: var(--accent);
             padding: 0.6rem 1.2rem;
             border-radius: 100px;
@@ -125,9 +130,33 @@
             margin-bottom: 3.5rem;
         }
 
-        .cta-group { display: flex; gap: 1rem; }
+        /* --- Shared Card Styling --- */
+        .card-styled {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* --- Global Grid & Section Styling --- */
+        .card-styled:hover {
+            transform: translateY(-8px);
+            background: #0d0d0d;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Border Accent Logic */
+        .accent-blue { border-left: 4px solid var(--accent); }
+        .accent-green { border-left: 4px solid var(--accent-green); }
+        .accent-purple { border-left: 4px solid var(--accent-purple); }
+        .accent-amber { border-left: 4px solid var(--accent-amber); }
+        .accent-rose { border-left: 4px solid var(--accent-rose); }
+        .accent-cyan { border-left: 4px solid var(--accent-cyan); }
+        .accent-indigo { border-left: 4px solid var(--accent-indigo); }
+
+        /* --- Sections --- */
         section {
             padding: 100px 8%;
             max-width: 1400px;
@@ -136,7 +165,6 @@
 
         .section-header {
             margin-bottom: 4rem;
-            text-align: left;
         }
 
         .section-header h2 {
@@ -153,7 +181,7 @@
             border-radius: 2px;
         }
 
-        /* --- Stats Bar --- */
+        /* --- Stats --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -164,23 +192,11 @@
         }
 
         .stat-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
             text-align: center;
-            transition: var(--transition);
-        }
-
-        .stat-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            background: #0d0d0d;
         }
 
         .stat-card h3 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
             color: #fff;
         }
 
@@ -191,174 +207,86 @@
             text-transform: uppercase;
         }
 
-        /* --- Skills Section --- */
-        .skills-grid {
+        /* --- Toolkit --- */
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
-        .skill-group {
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-        }
-
-        .skill-group h3 {
+        .toolkit-card h3 {
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
 
-        .skill-group h3 i { color: var(--accent); }
-
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 0.6rem;
         }
 
         .tags span {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
-            padding: 0.6rem 1rem;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            transition: 0.3s;
-        }
-
-        .tags span:hover {
-            border-color: var(--accent);
-            color: #fff;
         }
 
         /* --- Experience --- */
-        .timeline {
-            max-width: 900px;
-        }
-
-        .job-card {
-            padding: 3rem;
-            background: var(--bg-card);
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .job-title h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .job-title p { color: var(--accent); font-weight: 700; }
-
         .job-date {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            background: rgba(255,255,255,0.05);
+            font-size: 0.8rem;
             padding: 0.4rem 1rem;
             border-radius: 100px;
+            font-weight: 600;
         }
 
         .job-desc {
             list-style: none;
             color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         .job-desc li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.2rem;
             position: relative;
         }
 
         .job-desc li::before {
-            content: "";
+            content: "→";
             position: absolute;
             left: 0;
-            top: 10px;
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
+            color: var(--accent-indigo);
         }
 
-        /* --- Projects --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            border-radius: 24px;
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            border-color: #333;
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
+        /* --- Project Card Extras --- */
         .project-card .type {
             font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: block;
         }
 
         /* --- Footer --- */
         footer {
             background: #050505;
-            padding: 100px 8% 50px;
+            padding: 80px 8% 40px;
             border-top: 1px solid var(--border);
             text-align: center;
         }
-
-        .contact-box {
-            margin-bottom: 4rem;
-        }
-
-        .contact-box h2 { font-size: 3rem; margin-bottom: 1rem; }
-
-        .btn-mail {
-            font-size: 1.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-
-        .btn-mail:hover { opacity: 0.8; }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .social-links a {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            transition: 0.3s;
-        }
-
-        .social-links a:hover { color: #fff; transform: translateY(-3px); }
 
         .btn-main {
             background: var(--accent);
@@ -368,159 +296,169 @@
             text-decoration: none;
             font-weight: 700;
             transition: var(--transition);
-            border: none;
             display: inline-block;
         }
 
-        .btn-main:hover {
-            background: #2563eb;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: #fff; }
+
         @media (max-width: 768px) {
-            nav { padding: 1rem 5%; }
-            .nav-links { display: none; }
             .hero h1 { font-size: 3rem; }
-            .job-header { flex-direction: column; gap: 1rem; }
             .stats-grid { margin-top: 0; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .job-header { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">ASJG<span>.</span></a>
+        <a href="#" class="logo">AS<span class="highlight-j">J</span>G<span class="dot">.</span></a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Toolkit</a></li>
+            <li><a href="#toolkit">Toolkit</a></li>
             <li><a href="#experience">History</a></li>
             <li><a href="#projects">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#education">Education</a></li>
         </ul>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero" id="about">
             <div class="reveal hero-badge">BACKEND & DATA SCIENCE ENGINEER</div>
             <h1 class="reveal">Building Scalable <br> Data Intelligence.</h1>
-            <p class="reveal">Computer Science Graduate Student at Rivier University. Specialized in high-performance Python architectures and Machine Learning with 2+ years of professional field experience.</p>
-            <div class="reveal cta-group">
-                <a href="#projects" class="btn-main">See Projects</a>
-                <a href="#contact" class="btn-main" style="background: transparent; border: 1px solid var(--border);">Get in Touch</a>
+            <p class="reveal">Computer Science Graduate Student at Rivier University. Specialized in high-performance Python architectures and Machine Learning with 2+ years of professional experience.</p>
+            <div class="reveal">
+                <a href="#projects" class="btn-main">View My Work</a>
             </div>
         </section>
 
+        <!-- Stats Bar -->
         <section class="stats-grid">
-            <div class="stat-card reveal">
+            <div class="card-styled stat-card reveal accent-blue">
                 <h3>150+</h3>
                 <p>LeetCode Solved</p>
             </div>
-            <div class="stat-card reveal">
+            <div class="card-styled stat-card reveal accent-green">
                 <h3>7268</h3>
                 <p>GATE AIR Rank</p>
             </div>
-            <div class="stat-card reveal">
+            <div class="card-styled stat-card reveal accent-purple">
                 <h3>3.84</h3>
                 <p>Masters GPA</p>
             </div>
-            <div class="stat-card reveal">
+            <div class="card-styled stat-card reveal accent-amber">
                 <h3>2Y+</h3>
-                <p>Field Experience</p>
+                <p>Field Exp.</p>
             </div>
         </section>
 
-        <section id="skills">
+        <!-- Toolkit Section -->
+        <section id="toolkit">
             <div class="section-header reveal">
                 <h2>Technical Toolkit</h2>
                 <div class="line"></div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-group reveal">
-                    <h3><i class="fas fa-brain"></i> Data Science</h3>
+            <div class="grid-3">
+                <div class="card-styled toolkit-card reveal accent-blue">
+                    <h3><i class="fas fa-brain" style="color:var(--accent)"></i> Data Science</h3>
                     <div class="tags">
                         <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span>
-                        <span>Regression</span><span>Classification</span><span>Clustering</span><span>Scikit-Learn</span>
+                        <span>Regression</span><span>Classification</span><span>Scikit-Learn</span>
                     </div>
                 </div>
-                <div class="skill-group reveal">
-                    <h3><i class="fas fa-server"></i> Backend</h3>
+                <div class="card-styled toolkit-card reveal accent-purple">
+                    <h3><i class="fas fa-server" style="color:var(--accent-purple)"></i> Backend</h3>
                     <div class="tags">
                         <span>SQL</span><span>Python Backend</span><span>Data Validation</span>
-                        <span>API Design</span><span>Error Handling</span><span>Query Optimization</span>
+                        <span>API Design</span><span>Optimization</span><span>PostgreSQL</span>
                     </div>
                 </div>
-                <div class="skill-group reveal">
-                    <h3><i class="fas fa-microchip"></i> Foundations</h3>
+                <div class="card-styled toolkit-card reveal accent-amber">
+                    <h3><i class="fas fa-microchip" style="color:var(--accent-amber)"></i> Foundations</h3>
                     <div class="tags">
-                        <span>Data Structures</span><span>Algorithms</span><span>OS Architecture</span>
-                        <span>Linux</span><span>CPU Scheduling</span><span>Cybersecurity</span>
+                        <span>DS & Algo</span><span>OS Arch</span><span>Linux</span>
+                        <span>CPU Scheduling</span><span>Cybersecurity</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience">
             <div class="section-header reveal">
                 <h2>Work History</h2>
                 <div class="line"></div>
             </div>
-            <div class="timeline">
-                <div class="job-card reveal">
-                    <div class="job-header">
-                        <div class="job-title">
-                            <h3>Backend Developer</h3>
-                            <p>NS Software Technologies Pvt Ltd</p>
-                        </div>
-                        <div class="job-date">Sep 2022 – Jun 2024</div>
+            <div class="card-styled reveal accent-indigo">
+                <div class="job-header">
+                    <div>
+                        <h3 style="font-size: 1.5rem;">Backend Developer</h3>
+                        <p style="color: var(--accent-indigo); font-weight: 700;">NS Software Technologies Pvt Ltd</p>
                     </div>
-                    <ul class="job-desc">
-                        <li>Architected Python backend services for enterprise data management.</li>
-                        <li>Automated data validation pipelines reducing error processing time by 40%.</li>
-                        <li>Optimized SQL queries and aggregation logic for real-time analytics dashboards.</li>
-                        <li>Enhanced system reliability through rigorous refactoring and error-handling protocols.</li>
-                    </ul>
+                    <div class="job-date" style="background: rgba(99, 102, 241, 0.1); color: var(--accent-indigo);">Sep 2022 – Jun 2024</div>
                 </div>
+                <ul class="job-desc">
+                    <li>Architected Python backend services for enterprise data management.</li>
+                    <li>Automated data validation pipelines reducing error processing time by 40%.</li>
+                    <li>Optimized SQL queries and aggregation logic for real-time analytics.</li>
+                    <li>Enhanced system reliability through rigorous refactoring and error-handling.</li>
+                </ul>
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects">
             <div class="section-header reveal">
                 <h2>Projects & Research</h2>
                 <div class="line"></div>
             </div>
-            <div class="project-grid">
-                <div class="project-card reveal">
-                    <span class="type">Development</span>
+            <div class="grid-3">
+                <div class="card-styled reveal accent-rose">
+                    <span class="type" style="color: var(--accent-rose);">Development</span>
                     <h3>ML Model Suite</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Implementation of regression/classification models with hyperparameter tuning.</p>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">End-to-end implementation of regression and classification models with hyperparameter tuning.</p>
                 </div>
-                <div class="project-card reveal">
-                    <span class="type">Publication</span>
+                <div class="card-styled reveal accent-cyan">
+                    <span class="type" style="color: var(--accent-cyan);">Publication</span>
                     <h3>SpringerLink Research</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Co-authored research on sustainable water systems published in SpringerLink.</p>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">Research on sustainable water systems published in SpringerLink international journals.</p>
                 </div>
-                <div class="project-card reveal">
-                    <span class="type">Research</span>
+                <div class="card-styled reveal accent-purple">
+                    <span class="type" style="color: var(--accent-purple);">Research</span>
                     <h3>Fuzzy-Logic Robotics</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Designed control algorithms for 4-axis robotic welding presented at GCAT 2021.</p>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">Designed control algorithms for 4-axis robotic welding presented at GCAT conference.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Education Section -->
         <section id="education">
             <div class="section-header reveal">
                 <h2>Education</h2>
                 <div class="line"></div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-group reveal" style="border-left: 4px solid var(--accent);">
-                    <p class="job-date" style="display: inline-block; margin-bottom: 1rem;">2024 — 2026</p>
+            <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                <div class="card-styled reveal accent-blue">
+                    <div class="job-date" style="display: inline-block; margin-bottom: 1rem; background: rgba(59, 130, 246, 0.1); color: var(--accent);">2024 — 2026</div>
                     <h3>MS in Computer Science</h3>
                     <p style="color: var(--text-secondary);">Rivier University, USA • <strong>GPA 3.844</strong></p>
                 </div>
-                <div class="skill-group reveal">
-                    <p class="job-date" style="display: inline-block; margin-bottom: 1rem;">2017 — 2021</p>
+                <div class="card-styled reveal accent-green">
+                    <div class="job-date" style="display: inline-block; margin-bottom: 1rem; background: rgba(16, 185, 129, 0.1); color: var(--accent-green);">2017 — 2021</div>
                     <h3>B.Tech in Electrical Engineering</h3>
                     <p style="color: var(--text-secondary);">Amrita School of Engineering, India • <strong>GPA 8.19</strong></p>
                 </div>
@@ -529,24 +467,21 @@
     </main>
 
     <footer id="contact">
-        <div class="contact-box reveal">
-            <h2>Let's talk.</h2>
-            <a href="mailto:asjyothigayathri@gmail.com" class="btn-mail">asjyothigayathri@gmail.com</a>
+        <div class="reveal">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem;">Let's talk.</h2>
+            <a href="mailto:asjyothigayathri@gmail.com" style="color: var(--accent); font-size: 1.5rem; font-weight: 700; text-decoration: none;">asjyothigayathri@gmail.com</a>
         </div>
-        
-        <p class="reveal" style="color: var(--text-secondary);">Nashua, NH, USA | +1 (978) 259-8722</p>
         
         <div class="social-links reveal">
-            <a href="https://linkedin.com/in/sai-jyothi-gayathri-adabala-a41a9818b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/sadabala30" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://leetcode.com/u/asjgcodes" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+            <a href="https://linkedin.com/in/sai-jyothi-gayathri-adabala-a41a9818b" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/sadabala30" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/u/asjgcodes" target="_blank"><i class="fas fa-code"></i></a>
         </div>
         
-        <p style="margin-top: 4rem; font-size: 0.75rem; color: #333;">&copy; 2025 Sai Jyothi Gayathri Adabala. Built with Passion.</p>
+        <p style="font-size: 0.8rem; color: #444;">&copy; 2025 Sai Jyothi Gayathri Adabala. Built for High Performance.</p>
     </footer>
 
     <script>
-        // ScrollReveal Animation Logic
         ScrollReveal().reveal('.reveal', {
             delay: 150,
             distance: '30px',
