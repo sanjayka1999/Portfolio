@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sai Jyothi Gayathri Adabala - Data & Backend Engineer specialized in Python and Machine Learning.">
     <title>Sai Jyothi Gayathri Adabala | Data & Backend Engineer</title>
+    
+    <!-- Netlify & SEO Optimization -->
+    <link rel="canonical" href="https://your-domain.netlify.app/" />
+    
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Library -->
     <script src="https://unpkg.com/scrollreveal"></script>
+    
     <style>
         :root {
             --bg-pure: #000000;
@@ -392,7 +401,7 @@
     </nav>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="about">
             <div class="reveal hero-badge">BACKEND & DATA SCIENCE ENGINEER</div>
             <h1 class="reveal">Building Scalable <br> Data Intelligence.</h1>
             <p class="reveal">Computer Science Graduate Student at Rivier University. Specialized in high-performance Python architectures and Machine Learning with 2+ years of professional field experience.</p>
@@ -528,12 +537,12 @@
         <p class="reveal" style="color: var(--text-secondary);">Nashua, NH, USA | +1 (978) 259-8722</p>
         
         <div class="social-links reveal">
-            <a href="https://linkedin.com/in/sai-jyothi-gayathri-adabala-a41a9818b" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/sadabala30" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://leetcode.com/u/asjgcodes" target="_blank"><i class="fas fa-code"></i></a>
+            <a href="https://linkedin.com/in/sai-jyothi-gayathri-adabala-a41a9818b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/sadabala30" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/u/asjgcodes" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
         </div>
         
-        <p style="margin-top: 4rem; font-size: 0.75rem; color: #333;">&copy; 2025 Sai Jyothi Gayathri Adabala. Built for speed and data.</p>
+        <p style="margin-top: 4rem; font-size: 0.75rem; color: #333;">&copy; 2025 Sai Jyothi Gayathri Adabala. Built with Passion.</p>
     </footer>
 
     <script>
